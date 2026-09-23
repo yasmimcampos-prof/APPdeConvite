@@ -1,0 +1,1473 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Um convite para você ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            font-family: "DM Sans", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255,255,255,.35),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(255,255,255,.25),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ff758c,
+                    #ff7eb3,
+                    #9d6cff
+                );
+
+            color: white;
+        }
+
+
+        /* =========================
+           FUNDO
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .blob {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(4px);
+
+            opacity: .22;
+
+            animation:
+                floatBlob
+                10s
+                ease-in-out
+                infinite;
+        }
+
+        .blob:nth-child(1) {
+            width: 300px;
+            height: 300px;
+
+            background: white;
+
+            top: -100px;
+            left: -80px;
+        }
+
+        .blob:nth-child(2) {
+            width: 400px;
+            height: 400px;
+
+            background: #ffd1e1;
+
+            right: -150px;
+            bottom: -130px;
+
+            animation-delay: 2s;
+        }
+
+        .blob:nth-child(3) {
+            width: 180px;
+            height: 180px;
+
+            background: white;
+
+            top: 15%;
+            right: 20%;
+
+            animation-delay: 4s;
+        }
+
+        @keyframes floatBlob {
+
+            0%, 100% {
+                transform:
+                    translate(0, 0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translate(20px, -35px)
+                    rotate(15deg);
+            }
+        }
+
+
+        /* =========================
+           CORAÇÕES
+        ========================= */
+
+        #hearts {
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+
+            bottom: -50px;
+
+            opacity: .6;
+
+            animation:
+                subirCoracao
+                linear
+                forwards;
+        }
+
+        @keyframes subirCoracao {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .6;
+            }
+
+            80% {
+                opacity: .6;
+            }
+
+            100% {
+                transform:
+                    translateY(-120vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+
+            width: min(620px, 100%);
+
+            padding: 45px 35px;
+
+            text-align: center;
+
+            border-radius: 32px;
+
+            background:
+                rgba(255,255,255,.16);
+
+            border:
+                1px solid
+                rgba(255,255,255,.35);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+
+            box-shadow:
+                0 30px 80px
+                rgba(75,20,70,.25);
+
+            animation:
+                aparecer
+                .7s
+                ease;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(30px)
+                    scale(.95);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =========================
+           EMOJI
+        ========================= */
+
+        .emoji {
+
+            font-size: 75px;
+
+            margin-bottom: 15px;
+
+            animation:
+                pulsar
+                1.8s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes pulsar {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+
+        /* =========================
+           TÍTULOS
+        ========================= */
+
+        h1,
+        .titulo {
+
+            font-family: "Pacifico", cursive;
+
+            font-weight: 400;
+
+            line-height: 1.2;
+
+            text-shadow:
+                0 5px 20px
+                rgba(80,20,70,.2);
+        }
+
+        h1 {
+
+            font-size:
+                clamp(
+                    40px,
+                    8vw,
+                    64px
+                );
+
+            margin-bottom: 18px;
+        }
+
+        .titulo {
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           TEXTOS
+        ========================= */
+
+        .subtitle {
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            opacity: .92;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 18px;
+
+            min-height: 65px;
+
+            position: relative;
+        }
+
+        button {
+
+            border: none;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            border-radius: 999px;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                background .25s ease;
+        }
+
+        .yes {
+
+            background: white;
+
+            color: #e84f81;
+
+            padding: 15px 32px;
+
+            box-shadow:
+                0 10px 25px
+                rgba(100,20,70,.2);
+        }
+
+        .yes:hover {
+
+            transform:
+                translateY(-3px)
+                scale(1.05);
+
+            box-shadow:
+                0 15px 35px
+                rgba(100,20,70,.3);
+        }
+
+        .no {
+
+            background:
+                rgba(255,255,255,.18);
+
+            color: white;
+
+            border:
+                1px solid
+                rgba(255,255,255,.5);
+
+            padding: 15px 30px;
+        }
+
+        .no:hover {
+
+            background:
+                rgba(255,255,255,.28);
+        }
+
+
+        /* =========================
+           FORMULÁRIO
+        ========================= */
+
+        .form-group {
+
+            text-align: left;
+
+            margin-bottom: 22px;
+        }
+
+        label {
+
+            display: block;
+
+            margin-bottom: 9px;
+
+            font-weight: 700;
+        }
+
+        input,
+        select {
+
+            width: 100%;
+
+            padding: 15px 17px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.5);
+
+            background:
+                rgba(255,255,255,.18);
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+
+            border-color: white;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(255,255,255,.15);
+        }
+
+        input::-webkit-calendar-picker-indicator {
+
+            filter: invert(1);
+
+            cursor: pointer;
+        }
+
+        select option {
+
+            color: #333;
+
+            background: white;
+        }
+
+
+        /* =========================
+           BOTÃO CONFIRMAR
+        ========================= */
+
+        .confirm {
+
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding: 17px;
+
+            background: white;
+
+            color: #e84f81;
+
+            font-size: 18px;
+
+            box-shadow:
+                0 10px 25px
+                rgba(100,20,70,.18);
+        }
+
+        .confirm:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(80,20,70,.25);
+        }
+
+
+        /* =========================
+           ERRO
+        ========================= */
+
+        .error {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 10px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,0,70,.22);
+        }
+
+
+        /* =========================
+           TELA FINAL
+        ========================= */
+
+        .final-heart {
+
+            font-size: 95px;
+
+            animation:
+                finalPulse
+                1s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes finalPulse {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform:
+                    scale(1.18)
+                    rotate(-5deg);
+            }
+        }
+
+        .date-box {
+
+            margin: 25px 0;
+
+            padding: 22px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.18);
+
+            border:
+                1px solid
+                rgba(255,255,255,.35);
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+        .final-message {
+
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+        .restart {
+
+            margin-top: 25px;
+
+            padding: 12px 25px;
+
+            color: white;
+
+            background:
+                rgba(255,255,255,.2);
+
+            border:
+                1px solid
+                rgba(255,255,255,.5);
+        }
+
+
+        /* =========================
+           CONFETES
+        ========================= */
+
+        .confetti {
+
+            position: fixed;
+
+            top: -30px;
+
+            z-index: 999;
+
+            pointer-events: none;
+
+            animation:
+                confettiFall
+                3s
+                linear
+                forwards;
+        }
+
+        @keyframes confettiFall {
+
+            to {
+
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           ESCONDER
+        ========================= */
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 18px;
+            }
+
+            .card {
+
+                padding:
+                    35px
+                    20px;
+
+                border-radius: 26px;
+            }
+
+            h1 {
+
+                font-size: 42px;
+            }
+
+            .titulo {
+
+                font-size: 36px;
+            }
+
+            .subtitle {
+
+                font-size: 16px;
+            }
+
+            .buttons {
+
+                flex-direction: column;
+            }
+
+            .buttons button {
+
+                width: 190px;
+            }
+
+            .emoji {
+
+                font-size: 60px;
+            }
+
+            .final-heart {
+
+                font-size: 75px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         FUNDO
+    ========================== -->
+
+    <div class="background">
+
+        <div class="blob"></div>
+
+        <div class="blob"></div>
+
+        <div class="blob"></div>
+
+    </div>
+
+
+    <!-- CORAÇÕES -->
+
+    <div id="hearts"></div>
+
+
+    <main class="container">
+
+
+        <!-- =========================
+             TELA 1
+        ========================== -->
+
+        <section
+            class="card"
+            id="screen1"
+        >
+
+            <div class="emoji">
+                💌
+            </div>
+
+            <h1>
+                Quer sair comigo?
+            </h1>
+
+            <p class="subtitle">
+
+                Tenho uma proposta muito importante
+                para fazer...
+
+                <br>
+
+                e prometo que você vai gostar.
+                👀❤️
+
+            </p>
+
+
+            <div class="buttons">
+
+                <button
+                    class="yes"
+                    id="yesButton"
+                >
+                    SIM ❤️
+                </button>
+
+
+                <button
+                    class="no"
+                    id="noButton"
+                >
+                    NÃO 😭
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TELA 2
+        ========================== -->
+
+        <section
+            class="card hidden"
+            id="screen2"
+        >
+
+            <div class="emoji">
+                🥰
+            </div>
+
+            <h2 class="titulo">
+                EU SABIA! ❤️
+            </h2>
+
+            <p class="subtitle">
+
+                Agora só falta escolher quando
+                vamos colocar esse plano em prática.
+
+            </p>
+
+
+            <div class="form-group">
+
+                <label for="date">
+                    📅 Escolha a data
+                </label>
+
+                <input
+                    type="date"
+                    id="date"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="time">
+                    ⏰ Escolha o horário
+                </label>
+
+                <select id="time">
+
+                    <option value="">
+                        Selecione um horário
+                    </option>
+
+                    <option value="12:00">
+                        12:00
+                    </option>
+
+                    <option value="12:30">
+                        12:30
+                    </option>
+
+                    <option value="13:00">
+                        13:00
+                    </option>
+
+                    <option value="13:30">
+                        13:30
+                    </option>
+
+                    <option value="18:00">
+                        18:00
+                    </option>
+
+                    <option value="18:30">
+                        18:30
+                    </option>
+
+                    <option value="19:00">
+                        19:00
+                    </option>
+
+                    <option value="19:30">
+                        19:30
+                    </option>
+
+                    <option value="20:00">
+                        20:00
+                    </option>
+
+                    <option value="20:30">
+                        20:30
+                    </option>
+
+                    <option value="21:00">
+                        21:00
+                    </option>
+
+                    <option value="21:30">
+                        21:30
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="confirm"
+                id="confirmButton"
+            >
+                CONFIRMAR ENCONTRO 💕
+            </button>
+
+
+            <div
+                class="error"
+                id="error"
+            >
+                Ei! Você precisa escolher a data
+                e o horário. 👀
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TELA 3
+        ========================== -->
+
+        <section
+            class="card hidden"
+            id="screen3"
+        >
+
+            <div class="final-heart">
+                💖
+            </div>
+
+            <h2 class="titulo">
+                Encontro marcado!
+            </h2>
+
+
+            <p class="final-message">
+
+                Agora não tem mais volta... 😌
+
+                <br>
+
+                Já estou ansioso(a) para te ver.
+
+            </p>
+
+
+            <div class="date-box">
+
+                <div>
+                    📅
+                    <strong id="finalDate">
+                    </strong>
+                </div>
+
+                <div>
+                    ⏰
+                    <strong id="finalTime">
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <p class="final-message">
+                Até lá... ❤️
+            </p>
+
+
+            <button
+                class="restart"
+                id="restartButton"
+            >
+                Começar de novo 🔄
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+        // =====================================
+        // ELEMENTOS
+        // =====================================
+
+        const screen1 =
+            document.getElementById("screen1");
+
+        const screen2 =
+            document.getElementById("screen2");
+
+        const screen3 =
+            document.getElementById("screen3");
+
+        const yesButton =
+            document.getElementById("yesButton");
+
+        const noButton =
+            document.getElementById("noButton");
+
+        const confirmButton =
+            document.getElementById("confirmButton");
+
+        const restartButton =
+            document.getElementById("restartButton");
+
+        const dateInput =
+            document.getElementById("date");
+
+        const timeInput =
+            document.getElementById("time");
+
+        const error =
+            document.getElementById("error");
+
+        const hearts =
+            document.getElementById("hearts");
+
+
+        // =====================================
+        // DATA MÍNIMA = HOJE
+        // =====================================
+
+        const hoje =
+            new Date();
+
+        const ano =
+            hoje.getFullYear();
+
+        const mes =
+            String(
+                hoje.getMonth() + 1
+            ).padStart(2, "0");
+
+        const dia =
+            String(
+                hoje.getDate()
+            ).padStart(2, "0");
+
+        dateInput.min =
+            `${ano}-${mes}-${dia}`;
+
+
+        // =====================================
+        // BOTÃO SIM
+        // =====================================
+
+        yesButton.addEventListener(
+            "click",
+            () => {
+
+                screen1.classList.add(
+                    "hidden"
+                );
+
+                screen2.classList.remove(
+                    "hidden"
+                );
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        // =====================================
+        // BOTÃO NÃO
+        // =====================================
+
+        let tentativas = 0;
+
+        const frases = [
+
+            "NÃO 😭",
+
+            "Tem certeza? 🥺",
+
+            "Pensa melhor!",
+
+            "Não faz isso comigo 😭",
+
+            "Sério mesmo?",
+
+            "Olha o SIM ali 👀",
+
+            "Você não pode clicar aqui 😂",
+
+            "Desiste do NÃO!",
+
+            "EU VOU CONTINUAR FUGINDO 😭"
+
+        ];
+
+
+        function fugir() {
+
+            tentativas++;
+
+
+            const indice =
+                Math.min(
+                    tentativas,
+                    frases.length - 1
+                );
+
+
+            noButton.innerText =
+                frases[indice];
+
+
+            const largura =
+                window.innerWidth;
+
+            const altura =
+                window.innerHeight;
+
+
+            const buttonWidth =
+                noButton.offsetWidth;
+
+            const buttonHeight =
+                noButton.offsetHeight;
+
+
+            const maxX =
+                Math.max(
+                    20,
+                    largura - buttonWidth - 20
+                );
+
+            const maxY =
+                Math.max(
+                    20,
+                    altura - buttonHeight - 20
+                );
+
+
+            const x =
+                Math.random() * maxX;
+
+            const y =
+                Math.random() * maxY;
+
+
+            noButton.style.position =
+                "fixed";
+
+            noButton.style.left =
+                x + "px";
+
+            noButton.style.top =
+                y + "px";
+
+
+            noButton.style.zIndex =
+                "999";
+
+
+            if (tentativas >= 7) {
+
+                noButton.style.transform =
+                    "scale(.75)";
+
+            }
+
+        }
+
+
+        noButton.addEventListener(
+            "mouseenter",
+            fugir
+        );
+
+        noButton.addEventListener(
+            "touchstart",
+            event => {
+
+                event.preventDefault();
+
+                fugir();
+
+            }
+        );
+
+        noButton.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+
+                fugir();
+
+            }
+        );
+
+
+        // =====================================
+        // CONFIRMAR ENCONTRO
+        // =====================================
+
+        confirmButton.addEventListener(
+            "click",
+            () => {
+
+                const data =
+                    dateInput.value;
+
+                const horario =
+                    timeInput.value;
+
+
+                if (!data || !horario) {
+
+                    error.style.display =
+                        "block";
+
+                    return;
+                }
+
+
+                error.style.display =
+                    "none";
+
+
+                const dataObj =
+                    new Date(
+                        data + "T00:00:00"
+                    );
+
+
+                const dataFormatada =
+                    dataObj.toLocaleDateString(
+                        "pt-BR",
+                        {
+                            weekday: "long",
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    );
+
+
+                document.getElementById(
+                    "finalDate"
+                ).innerText =
+                    dataFormatada;
+
+
+                document.getElementById(
+                    "finalTime"
+                ).innerText =
+                    horario;
+
+
+                screen2.classList.add(
+                    "hidden"
+                );
+
+                screen3.classList.remove(
+                    "hidden"
+                );
+
+
+                criarConfetes();
+
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        // =====================================
+        // RECOMEÇAR
+        // =====================================
+
+        restartButton.addEventListener(
+            "click",
+            () => {
+
+                location.reload();
+
+            }
+        );
+
+
+        // =====================================
+        // CORAÇÕES
+        // =====================================
+
+        const simbolosCoracao = [
+            "❤️",
+            "💕",
+            "💗",
+            "💖",
+            "💘",
+            "💓",
+            "💞"
+        ];
+
+
+        function criarCoracao() {
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className =
+                "heart";
+
+
+            heart.innerText =
+                simbolosCoracao[
+                    Math.floor(
+                        Math.random() *
+                        simbolosCoracao.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+                (
+                    15 +
+                    Math.random() * 20
+                ) + "px";
+
+
+            heart.style.animationDuration =
+                (
+                    5 +
+                    Math.random() * 7
+                ) + "s";
+
+
+            hearts.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                () => heart.remove(),
+                13000
+            );
+
+        }
+
+
+        setInterval(
+            criarCoracao,
+            600
+        );
+
+
+        // =====================================
+        // CONFETES
+        // =====================================
+
+        function criarConfetes() {
+
+            const simbolos = [
+                "❤️",
+                "💕",
+                "💖",
+                "✨",
+                "💗",
+                "🌸",
+                "💘"
+            ];
+
+
+            for (
+                let i = 0;
+                i < 80;
+                i++
+            ) {
+
+                const confete =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                confete.className =
+                    "confetti";
+
+
+                confete.innerText =
+                    simbolos[
+                        Math.floor(
+                            Math.random() *
+                            simbolos.length
+                        )
+                    ];
+
+
+                confete.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                confete.style.fontSize =
+                    (
+                        12 +
+                        Math.random() * 20
+                    ) + "px";
+
+
+                confete.style.animationDuration =
+                    (
+                        2 +
+                        Math.random() * 3
+                    ) + "s";
+
+
+                confete.style.animationDelay =
+                    (
+                        Math.random() * 1.5
+                    ) + "s";
+
+
+                document.body.appendChild(
+                    confete
+                );
+
+
+                setTimeout(
+                    () => confete.remove(),
+                    5500
+                );
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
